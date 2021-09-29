@@ -1,0 +1,22 @@
+@startuml
+
+start
+
+:Add player with default rating of 1200 (or manually input);
+:Create tournament;
+:Create groups;
+:Assign player to group;
+:Sort players in the group by rating;
+:Generate matches;
+:Input match results;
+:Calculate group's placements;
+:Generate next tournament draft;
+:Move top two players into upper group draft;
+:Move bottom two players into lower group draft;
+:Move other player to the draft of the same group;
+:When all groups are finished then Calculate tournament games by Glicko-2 algorithm;
+:Finish the tournament;
+
+stop
+
+@enduml

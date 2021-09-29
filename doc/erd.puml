@@ -1,0 +1,101 @@
+@startuml
+
+entity Player {
+  *id: bigint <<generated>>
+  --
+  *name: varchar
+  rating: int
+  created: timestamp
+  updated: timestamp
+}
+
+entity Group {
+  *id: bigint <<generated>>
+  --
+  *name: varchar
+  *tournament_id: bigint
+  position: int
+  run_date: timestamp
+  status: DRAFT|IN_PROGRESS|DONE
+  created: timestamp
+  updated: timestamp
+}
+
+entity GroupPlayer {
+  *id: bigint <<generated>>
+  --
+  *group_id: bigint
+  *player_id: bigint
+  *starting_position: int
+  score: int
+  place: int
+  created: timestamp
+  updated: timestamp
+}
+
+entity Match {
+ *id: bigint <<generated>>
+  --
+  *group_id: bigint
+  *group_player1_id: bigint
+  *group_player2_id: bigint
+  player1_result: int
+  player2_result: int
+  status: DRAFT|IN_PROGRESS|DONE
+  created: timestamp
+  updated: timestamp
+}
+
+entity Series {
+  *id: bigint <<generated>>
+  --
+  *name: varchar
+  status: DRAFT|IN_PROGRESS|DONE
+  created: timestamp
+  updated: timestamp
+}
+
+entity Tournament {
+  *id: bigint <<generated>>
+  --
+  *name: varchar
+  series_id: bigint
+  run_date: date
+  status: DRAFT|IN_PROGRESS|DONE
+  created: timestamp
+  updated: timestamp
+}
+
+entity Rating {
+  *id: bigint <<generated>>
+  --
+  *player_id: bigint
+  *match_id: bigint
+  *tournament_id: bigint
+  current_rating: int
+  delta: int
+  created: timestamp
+  updated: timestamp
+}
+
+entity User {
+  *id: bigint <<generated>>
+  --
+  login: varchar
+  password_hash: varchar
+  player_id: bigint
+  created: timestamp
+  updated: timestamp
+  role: ADMIN|JUDGE|PLAYER
+}
+
+Player ||..|{ GroupPlayer
+Group ||..|{ GroupPlayer
+Group ||..|{ Match
+GroupPlayer ||..|{ Match
+Tournament ||..|{ Group
+Player ||..|{ Rating
+Series ||..|{ Tournament
+User |o..o| Player
+
+@enduml

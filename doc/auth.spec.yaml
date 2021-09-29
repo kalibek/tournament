@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Authentication/Authorization
+  description: Authentication/Authorization
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/api/v1.0.0'
+    description: Tournament api (local)
+  - url: 'http://dev.tournament.api/api/v1.0.0'
+    description: Tournament api (dev)
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+    TokenResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+    RefreshRequest:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+
+paths:
+  /auth/token:
+    post:
+      tags:
+        - auth
+      description: generate token
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        '200':
+          description: Token created
+          content:
+            'application/json':
+              schema:
+                $ref: "#/components/schemas/TokenResponse"
+        '401':
+          description: access denied
+  /auth/token/refresh:
+    post:
+      tags:
+        - auth
+      description: refresh token
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              $ref: "#/components/schemas/RefreshRequest"
+      responses:
+        '200':
+          description: Token created
+          content:
+            'application/json':
+              schema:
+                $ref: "#/components/schemas/TokenResponse"
+        '401':
+          description: access denied
+
+
