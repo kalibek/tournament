@@ -14,5 +14,7 @@ public class GroupPlayerResponse {
   private final Long id;
   private final LocalDateTime created;
   private final LocalDateTime updated;
+  private final Integer score;
+  private final Integer place;
 
 }

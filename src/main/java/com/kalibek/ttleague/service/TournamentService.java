@@ -38,7 +38,7 @@ public class TournamentService {
         TournamentNotFoundException::new));
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public TournamentResponse createTournament(Long seriesId,
       TournamentRequest tournamentRequest) {
     Series series = seriesRepo.findById(seriesId).orElseThrow(SeriesNotFoundException::new);
@@ -51,7 +51,7 @@ public class TournamentService {
     return toTournamentResponse(tournament);
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public TournamentResponse updateTournament(Long tournamentId,
       TournamentRequest tournamentRequest) {
 

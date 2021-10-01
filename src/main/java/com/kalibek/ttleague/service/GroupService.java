@@ -9,6 +9,7 @@ import com.kalibek.ttleague.model.repo.TournamentRepo;
 import com.kalibek.ttleague.rest.model.GroupRequest;
 import com.kalibek.ttleague.rest.model.GroupResponse;
 import com.kalibek.ttleague.security.model.Roles;
+import com.kalibek.ttleague.service.exception.GroupNotFoundException;
 import com.kalibek.ttleague.service.exception.TournamentNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class GroupService {
         .collect(Collectors.toList());
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public GroupResponse createGroup(Long tournamentId,
       GroupRequest groupRequest) {
     Tournament tournament = tournamentRepo.findById(tournamentId).orElseThrow(
@@ -39,6 +40,23 @@ public class GroupService {
     Group group = new Group();
     mergeGroup(group, groupRequest);
     group.setTournament(tournament);
+    groupRepo.save(group);
+    return toGroupResponse(group);
+  }
+
+  public GroupResponse getGroup(Long groupId) {
+    return toGroupResponse(groupRepo.findById(groupId).orElseThrow(GroupNotFoundException::new));
+  }
+
+  @RolesAllowed(Roles.ADMIN)
+  public void deleteGroup(Long groupId) {
+    groupRepo.deleteById(groupId);
+  }
+
+  @RolesAllowed(Roles.ADMIN)
+  public GroupResponse updateGroup(Long groupId, GroupRequest groupRequest) {
+    Group group = groupRepo.findById(groupId).orElseThrow(GroupNotFoundException::new);
+    mergeGroup(group, groupRequest);
     groupRepo.save(group);
     return toGroupResponse(group);
   }
@@ -62,4 +80,5 @@ public class GroupService {
         group.getPosition()
     );
   }
+
 }

@@ -1,25 +1,28 @@
 package com.kalibek.ttleague.rest.api.impl;
 
 import com.kalibek.ttleague.rest.api.MatchesApi;
-import java.util.Optional;
+import com.kalibek.ttleague.rest.model.MatchRequest;
+import com.kalibek.ttleague.rest.model.MatchResponse;
+import com.kalibek.ttleague.service.MatchService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.request.NativeWebRequest;
 
 @Controller
 @RequestMapping("${openapi.tournament.base-path:/api/v1.0.0}")
+@RequiredArgsConstructor
 public class MatchesApiController implements MatchesApi {
 
-  private final NativeWebRequest request;
+  private final MatchService matchService;
 
-  @org.springframework.beans.factory.annotation.Autowired
-  public MatchesApiController(NativeWebRequest request) {
-    this.request = request;
+  @Override
+  public ResponseEntity<MatchResponse> getMatch(Long matchId) {
+    return ResponseEntity.ok(matchService.getMatch(matchId));
   }
 
   @Override
-  public Optional<NativeWebRequest> getRequest() {
-    return Optional.ofNullable(request);
+  public ResponseEntity<MatchResponse> updateMatch(Long matchId, MatchRequest matchRequest) {
+    return ResponseEntity.ok(matchService.updateMatch(matchId, matchRequest));
   }
-
 }

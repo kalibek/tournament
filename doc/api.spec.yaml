@@ -159,6 +159,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/CommonResponse"
         - $ref: "#/components/schemas/GroupRequest"
+
     GroupPlayerResponse:
       type: object
       allOf:
@@ -171,6 +172,10 @@ components:
           type: integer
           format: int64
         startingPosition:
+          type: integer
+        score:
+          type: integer
+        place:
           type: integer
 
     MatchRequest:

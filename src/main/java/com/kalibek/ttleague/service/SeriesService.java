@@ -34,7 +34,7 @@ public class SeriesService {
         .orElseThrow(SeriesNotFoundException::new);
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public SeriesResponse createSeries(SeriesRequest seriesRequest) {
     Series series = new Series();
     series.setName(seriesRequest.getName());
@@ -42,13 +42,13 @@ public class SeriesService {
     return toSeriesResponse(series);
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public void deleteSeries(Long seriesId) {
     seriesRepo.deleteById(seriesId);
   }
 
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public SeriesResponse updateSeries(Long seriesId, SeriesRequest seriesRequest) {
     Series series = seriesRepo.findById(seriesId).orElseThrow(SeriesNotFoundException::new);
     series.setName(seriesRequest.getName());

@@ -38,21 +38,21 @@ public class PlayerService {
         .orElseThrow(PlayerNotFoundException::new);
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public PlayerResponse createPlayer(PlayerRequest playerRequest) {
     Player player = new Player();
     mergePlayer(player, playerRequest);
     return toPlayerResponse(playerRepo.save(player));
   }
 
-  @RolesAllowed({Roles.ROLE_ADMIN, Roles.ROLE_JUDGE})
+  @RolesAllowed({Roles.ADMIN, Roles.JUDGE})
   public PlayerResponse updatePlayer(Long playerId, PlayerRequest playerRequest) {
     Player player = playerRepo.findById(playerId).orElseThrow(PlayerNotFoundException::new);
     mergePlayer(player, playerRequest);
     return toPlayerResponse(playerRepo.save(player));
   }
 
-  @RolesAllowed(Roles.ROLE_ADMIN)
+  @RolesAllowed(Roles.ADMIN)
   public void deletePlayer(Long playerId) {
     playerRepo.deleteById(playerId);
   }

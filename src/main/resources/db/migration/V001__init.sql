@@ -22,7 +22,7 @@ create table tournaments
     series_id bigint    not null,
     run_date  timestamp not null,
     status    varchar   not null,
-    foreign key (series_id) references series (id),
+    foreign key (series_id) references series (id) on delete cascade,
     created   timestamp not null default current_timestamp,
     updated   timestamp not null default current_timestamp
 );
@@ -35,7 +35,7 @@ create table groups
     position      int,
     run_date      timestamp not null,
     status        varchar   not null,
-    foreign key (tournament_id) references tournaments (id),
+    foreign key (tournament_id) references tournaments (id) on delete cascade,
     created       timestamp not null default current_timestamp,
     updated       timestamp not null default current_timestamp
 
@@ -50,8 +50,8 @@ create table group_players
     starting_position int       not null,
     score             int,
     place             int,
-    foreign key (group_id) references groups (id),
-    foreign key (player_id) references players (id),
+    foreign key (group_id) references groups (id) on delete cascade,
+    foreign key (player_id) references players (id) on delete cascade,
     created           timestamp not null default current_timestamp,
     updated           timestamp not null default current_timestamp
 );
@@ -65,9 +65,9 @@ create table matches
     player1_result   int,
     player2_result   int,
     status           varchar   not null,
-    foreign key (group_id) references groups (id),
-    foreign key (group_player1_id) references group_players (id),
-    foreign key (group_player1_id) references group_players (id),
+    foreign key (group_id) references groups (id) on delete cascade,
+    foreign key (group_player1_id) references group_players (id) on delete cascade,
+    foreign key (group_player1_id) references group_players (id) on delete cascade,
     created          timestamp not null default current_timestamp,
     updated          timestamp not null default current_timestamp
 );
@@ -81,7 +81,7 @@ create table Rating
     tournament_id  bigint,
     current_rating int       not null,
     delta          int       not null,
-    foreign key (player_id) references players (id),
+    foreign key (player_id) references players (id) on delete cascade,
     created        timestamp not null default current_timestamp,
     updated        timestamp not null default current_timestamp
 );
