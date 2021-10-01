@@ -1,5 +1,6 @@
 package com.kalibek.ttleague.model.entity;
 
+import com.kalibek.ttleague.rest.model.Status;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;

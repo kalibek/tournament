@@ -95,16 +95,16 @@ public interface TournamentsApi {
    * @param tournamentId (required)
    * @return Ok response (status code 200)
    */
-  @ApiOperation(value = "", nickname = "getTournament", notes = "Get single series", response = TournamentRequest.class, tags = {
+  @ApiOperation(value = "", nickname = "getTournament", notes = "Get single series", response = TournamentResponse.class, tags = {
       "tournaments",})
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Ok response", response = TournamentRequest.class)})
+      @ApiResponse(code = 200, message = "Ok response", response = TournamentResponse.class)})
   @RequestMapping(
       method = RequestMethod.GET,
       value = "/tournaments/{tournamentId}",
       produces = {"application/json"}
   )
-  default ResponseEntity<TournamentRequest> getTournament(
+  default ResponseEntity<TournamentResponse> getTournament(
       @ApiParam(value = "", required = true) @PathVariable("tournamentId") Long tournamentId) {
     getRequest().ifPresent(request -> {
       for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader("Accept"))) {

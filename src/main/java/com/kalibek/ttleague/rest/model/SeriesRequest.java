@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SeriesRequest {
 
-  private String name;
-  private Status status;
+  private final String name;
+  private final Status status;
 
 
 }

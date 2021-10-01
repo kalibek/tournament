@@ -2,7 +2,7 @@ package com.kalibek.ttleague.service;
 
 import static com.kalibek.ttleague.service.mapper.PlayerMapper.mergePlayer;
 import static com.kalibek.ttleague.service.mapper.PlayerMapper.toPlayerResponse;
-import static com.kalibek.ttleague.service.util.PageableUtils.toPagebale;
+import static com.kalibek.ttleague.service.util.PageableUtils.toPageable;
 
 import com.kalibek.ttleague.model.entity.Player;
 import com.kalibek.ttleague.model.repo.PlayerRepo;
@@ -26,9 +26,16 @@ public class PlayerService {
   public List<PlayerResponse> listPlayers(Integer offset, Integer limit, String sortBy,
       String sortOrder) {
     return playerRepo.findAll(
-            toPagebale(offset, limit, sortBy, sortOrder)).stream()
+            toPageable(offset, limit, sortBy, sortOrder)).stream()
         .map(PlayerMapper::toPlayerResponse)
         .collect(Collectors.toList());
+  }
+
+
+  public PlayerResponse getPlayer(Long playerId) {
+    return playerRepo.findById(playerId)
+        .map(PlayerMapper::toPlayerResponse)
+        .orElseThrow(PlayerNotFoundException::new);
   }
 
   @RolesAllowed(Roles.ROLE_ADMIN)
@@ -49,4 +56,5 @@ public class PlayerService {
   public void deletePlayer(Long playerId) {
     playerRepo.deleteById(playerId);
   }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
@@ -33,10 +34,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
         .csrf().disable()
+
+        // don't create a session for this configuration
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+
         // allow tokens
         .authorizeRequests()
         .antMatchers(HttpMethod.POST, "/api/v1.0.0/auth/token").permitAll()
-        .antMatchers( "/api/v1.0.0/players").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/v1.0.0/players/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/v1.0.0/series/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/v1.0.0/tournaments/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/v1.0.0/groups/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/v1.0.0/matches/**").permitAll()
         .and()
 
         // secure all the paths

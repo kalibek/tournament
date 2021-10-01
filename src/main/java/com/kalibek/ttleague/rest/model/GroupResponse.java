@@ -13,6 +13,9 @@ public class GroupResponse {
   private final LocalDateTime updated;
   private final String name;
   private final Status status;
+  private final Long tournamentId;
+  private final LocalDateTime runDate;
+  private final Integer position;
 
 }
 

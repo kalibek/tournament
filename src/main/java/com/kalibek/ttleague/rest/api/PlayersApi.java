@@ -94,16 +94,16 @@ public interface PlayersApi {
    * @param playerId  (required)
    * @return Ok response (status code 200)
    */
-  @ApiOperation(value = "", nickname = "getPlayer", notes = "Get single player", response = PlayerRequest.class, tags = {
+  @ApiOperation(value = "", nickname = "getPlayer", notes = "Get single player", response = PlayerResponse.class, tags = {
       "player",})
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Ok response", response = PlayerRequest.class)})
+      @ApiResponse(code = 200, message = "Ok response", response = PlayerResponse.class)})
   @RequestMapping(
       method = RequestMethod.GET,
       value = "/players/{playerId}",
       produces = {"application/json"}
   )
-  default ResponseEntity<PlayerRequest> getPlayer(
+  default ResponseEntity<PlayerResponse> getPlayer(
       @ApiParam(value = "", required = true) @PathVariable("playerId") Long playerId) {
     getRequest().ifPresent(request -> {
       for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader("Accept"))) {

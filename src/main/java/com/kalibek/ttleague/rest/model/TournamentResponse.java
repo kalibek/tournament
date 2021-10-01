@@ -13,6 +13,7 @@ public class TournamentResponse {
   private final LocalDateTime updated;
   private final String name;
   private final Status status;
+  private final LocalDateTime runDate;
 
 }
 

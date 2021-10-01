@@ -125,16 +125,16 @@ public interface GroupsApi {
    * @param groupId  (required)
    * @return Ok response (status code 200)
    */
-  @ApiOperation(value = "", nickname = "getGroup", notes = "Get single series", response = GroupRequest.class, tags = {
+  @ApiOperation(value = "", nickname = "getGroup", notes = "Get single series", response = GroupResponse.class, tags = {
       "groups",})
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Ok response", response = GroupRequest.class)})
+      @ApiResponse(code = 200, message = "Ok response", response = GroupResponse.class)})
   @RequestMapping(
       method = RequestMethod.GET,
       value = "/groups/{groupId}",
       produces = {"application/json"}
   )
-  default ResponseEntity<GroupRequest> getGroup(
+  default ResponseEntity<GroupResponse> getGroup(
       @ApiParam(value = "", required = true) @PathVariable("groupId") Long groupId) {
     getRequest().ifPresent(request -> {
       for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader("Accept"))) {

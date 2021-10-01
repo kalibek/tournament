@@ -28,22 +28,21 @@ public interface MatchesApi {
   }
 
   /**
-   * GET /matches/{matchId}
-   * Get single match
+   * GET /matches/{matchId} Get single match
    *
-   * @param matchId  (required)
+   * @param matchId (required)
    * @return Ok response (status code 200)
    */
-  @ApiOperation(value = "", nickname = "getMatch", notes = "Get single match", response = MatchRequest.class, tags = {
+  @ApiOperation(value = "", nickname = "getMatch", notes = "Get single match", response = MatchResponse.class, tags = {
       "matches",})
   @ApiResponses(value = {
-      @ApiResponse(code = 200, message = "Ok response", response = MatchRequest.class)})
+      @ApiResponse(code = 200, message = "Ok response", response = MatchResponse.class)})
   @RequestMapping(
       method = RequestMethod.GET,
       value = "/matches/{matchId}",
       produces = {"application/json"}
   )
-  default ResponseEntity<MatchRequest> getMatch(
+  default ResponseEntity<MatchResponse> getMatch(
       @ApiParam(value = "", required = true) @PathVariable("matchId") Long matchId) {
     getRequest().ifPresent(request -> {
       for (MediaType mediaType : MediaType.parseMediaTypes(request.getHeader("Accept"))) {
@@ -60,11 +59,10 @@ public interface MatchesApi {
 
 
   /**
-   * PUT /matches/{matchId}
-   * Update single match
+   * PUT /matches/{matchId} Update single match
    *
-   * @param matchId  (required)
-   * @param matchRequest  (optional)
+   * @param matchId      (required)
+   * @param matchRequest (optional)
    * @return Ok response (status code 200)
    */
   @ApiOperation(value = "", nickname = "updateMatch", notes = "Update single match", response = MatchResponse.class, tags = {

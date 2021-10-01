@@ -6,7 +6,7 @@ import org.springframework.data.domain.Sort;
 
 public class PageableUtils {
 
-  public static Pageable toPagebale(Integer offset, Integer limit, String sortBy,
+  public static Pageable toPageable(Integer offset, Integer limit, String sortBy,
       String sortOrder) {
     if (offset == null) {
       offset = 0;

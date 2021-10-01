@@ -519,7 +519,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: "#/components/schemas/SeriesRequest"
+                $ref: "#/components/schemas/SeriesResponse"
     put:
       tags:
         - series
@@ -617,7 +617,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: "#/components/schemas/TournamentRequest"
+                $ref: "#/components/schemas/TournamentResponse"
     put:
       tags:
         - tournaments
@@ -715,7 +715,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: "#/components/schemas/GroupRequest"
+                $ref: "#/components/schemas/GroupResponse"
     put:
       tags:
         - groups
@@ -791,7 +791,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: "#/components/schemas/MatchRequest"
+                $ref: "#/components/schemas/MatchResponse"
     put:
       tags:
         - matches

@@ -8,10 +8,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TournamentRequest {
 
-  private Long seriesId;
-  private LocalDateTime runDate;
-  private String name;
-  private Status status;
+  private final Long seriesId;
+  private final LocalDateTime runDate;
+  private final String name;
+  private final Status status;
 
 
 }

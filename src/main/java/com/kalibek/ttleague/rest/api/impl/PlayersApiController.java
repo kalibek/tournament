@@ -40,7 +40,7 @@ public class PlayersApiController implements PlayersApi {
   }
 
   @Override
-  public ResponseEntity<PlayerRequest> getPlayer(Long playerId) {
-    return PlayersApi.super.getPlayer(playerId);
+  public ResponseEntity<PlayerResponse> getPlayer(Long playerId) {
+    return ResponseEntity.ok(playerService.getPlayer(playerId));
   }
 }

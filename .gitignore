@@ -35,3 +35,6 @@ build/
 .mvn
 mvnw
 mvnw.cmd
+
+doc/gen
+doc/openapi-generator-cli.jar
