@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TokenResponse {
 
-  private String accessToken;
-  private String refreshToken;
+  private final String accessToken;
+  private final String refreshToken;
 
 
 }

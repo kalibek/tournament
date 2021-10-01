@@ -3,8 +3,14 @@ spring:
     url: jdbc:postgresql://localhost:5432/test
     username: test
     password: test
+  app:
+    jwt:
+      secret: 293084y592v3jr2v30875y9238475y2ejf2i034875y2ekjdf823459
 springfox:
   documentation:
     swagger:
       v2:
         path: /api-docs
+logging:
+  level:
+    root: INFO

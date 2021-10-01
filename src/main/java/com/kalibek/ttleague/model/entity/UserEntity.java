@@ -1,4 +1,4 @@
-package com.kalibek.ttleague.model;
+package com.kalibek.ttleague.model.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -12,7 +12,7 @@ import lombok.Data;
 @Table(name = "users")
 @Entity
 @Data
-public class User {
+public class UserEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,9 @@ public class User {
 
   @Column(name = "player_id")
   private Long playerId;
+
+  @Column(name = "role", nullable = false)
+  private String role;
 
   @Column(name = "created", nullable = false)
   private LocalDateTime created = LocalDateTime.now();
