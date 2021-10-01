@@ -190,10 +190,10 @@ components:
         groupId:
           type: integer
           format: int64
-        groupPlayerId1:
+        playerId1:
           type: integer
           format: int64
-        groupPlayerId2:
+        playerId2:
           type: integer
           format: int64
         playerResult1:

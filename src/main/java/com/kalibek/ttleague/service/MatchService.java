@@ -89,8 +89,8 @@ public class MatchService {
         match.getUpdated(),
         match.getStatus(),
         match.getGroup().getId(),
-        match.getGroupPlayer1().getId(),
-        match.getGroupPlayer2().getId(),
+        match.getGroupPlayer1().getPlayer().getId(),
+        match.getGroupPlayer2().getPlayer().getId(),
         match.getPlayer1Result(),
         match.getPlayer2Result()
     );
