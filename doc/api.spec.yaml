@@ -171,6 +171,10 @@ components:
         playerId:
           type: integer
           format: int64
+        playerName:
+          type: string
+        playerRating:
+          type: integer
         startingPosition:
           type: integer
         score:

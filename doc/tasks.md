@@ -7,7 +7,7 @@ Task List:
 | Add rules to status transitions for Match | - |
 | Add rules to status transitions for Group | - |
 | Add rules to status transitions for Tournament | - |
-| Show names instead of ids in Match and GroupPlayer| -|
+| Show names instead of ids in Match and GroupPlayer| <span style="color:green">Done</span>|
 | Implement round support in matches | - |
 | Implement resources support (tables) | - |
 | Implement Rating calculation | - |

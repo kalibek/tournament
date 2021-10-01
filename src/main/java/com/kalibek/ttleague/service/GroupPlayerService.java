@@ -91,6 +91,8 @@ public class GroupPlayerService {
     return new GroupPlayerResponse(
         groupPlayer.getGroup().getId(),
         groupPlayer.getPlayer().getId(),
+        groupPlayer.getPlayer().getName(),
+        groupPlayer.getPlayer().getRating(),
         groupPlayer.getStartingPosition(),
         groupPlayer.getId(),
         groupPlayer.getCreated(),

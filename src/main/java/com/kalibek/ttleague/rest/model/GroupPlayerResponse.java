@@ -10,6 +10,8 @@ public class GroupPlayerResponse {
 
   private final Long groupId;
   private final Long playerId;
+  private final String playerName;
+  private final Integer playerRating;
   private final Integer startingPosition;
   private final Long id;
   private final LocalDateTime created;
