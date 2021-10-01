@@ -17,6 +17,7 @@ public class MatchResponse {
   private final Long groupPlayerId2;
   private final Integer playerResult1;
   private final Integer playerResult2;
+  private final Integer round;
 
 
 }

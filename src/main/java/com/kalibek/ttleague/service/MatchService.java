@@ -92,7 +92,8 @@ public class MatchService {
         match.getGroupPlayer1().getId(),
         match.getGroupPlayer2().getId(),
         match.getPlayer1Result(),
-        match.getPlayer2Result()
+        match.getPlayer2Result(),
+        0
     );
   }
 

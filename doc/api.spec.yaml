@@ -205,6 +205,9 @@ components:
       allOf:
         - $ref: "#/components/schemas/CommonResponse"
         - $ref: "#/components/schemas/MatchRequest"
+      properties:
+        round:
+          type: integer
 
 
   examples:

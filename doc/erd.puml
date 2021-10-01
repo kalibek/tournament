@@ -39,6 +39,7 @@ entity Match {
   *group_id: bigint
   *group_player1_id: bigint
   *group_player2_id: bigint
+  round: int
   player1_result: int
   player2_result: int
   status: DRAFT|IN_PROGRESS|DONE
