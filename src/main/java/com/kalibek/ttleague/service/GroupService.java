@@ -37,10 +37,17 @@ public class GroupService {
     Tournament tournament = tournamentRepo.findById(tournamentId).orElseThrow(
         TournamentNotFoundException::new);
     Group group = new Group();
-    group.setName(groupRequest.getName());
+    mergeGroup(group, groupRequest);
     group.setTournament(tournament);
     groupRepo.save(group);
     return toGroupResponse(group);
+  }
+
+  private void mergeGroup(Group group, GroupRequest groupRequest) {
+    group.setName(groupRequest.getName());
+    group.setRunDate(groupRequest.getRunDate());
+    group.setPosition(groupRequest.getPosition());
+    group.setStatus(groupRequest.getStatus());
   }
 
   private GroupResponse toGroupResponse(Group group) {

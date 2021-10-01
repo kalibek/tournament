@@ -12,4 +12,5 @@ public class GroupRequest {
   private final LocalDateTime runDate;
   private final Integer position;
   private final String name;
+  private final Status status;
 }
