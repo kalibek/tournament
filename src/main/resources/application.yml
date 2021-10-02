@@ -6,6 +6,10 @@ spring:
   app:
     jwt:
       secret: 293084y592v3jr2v30875y9238475y2ejf2i034875y2ekjdf823459
+      ttl:
+        access: 600
+        refresh: 28800
+
 springfox:
   documentation:
     swagger:

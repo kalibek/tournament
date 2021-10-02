@@ -1,24 +1,20 @@
-package com.kalibek.ttleague.model.entity;
+package com.kalibek.ttleague.domain.entity;
 
-import com.kalibek.ttleague.rest.model.Status;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "matches")
+@Table(name = "group_players")
 @Entity
 @Data
-public class Match {
+public class GroupPlayer {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,30 +26,22 @@ public class Match {
   private Group group;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "group_player1_id", nullable = false)
-  private GroupPlayer groupPlayer1;
+  @JoinColumn(name = "player_id", nullable = false)
+  private Player player;
 
-  @ManyToOne(optional = false)
-  @JoinColumn(name = "group_player2_id", nullable = false)
-  private GroupPlayer groupPlayer2;
+  @Column(name = "starting_position", nullable = false)
+  private Integer startingPosition;
 
-  @Column(name = "player1_result")
-  private Integer player1Result;
+  @Column(name = "score")
+  private Integer score;
 
-  @Column(name = "player2_result")
-  private Integer player2Result;
-
-  @Column(name = "status", nullable = false)
-  @Enumerated(EnumType.STRING)
-  private Status status;
+  @Column(name = "place")
+  private Integer place;
 
   @Column(name = "created", nullable = false)
   private LocalDateTime created = LocalDateTime.now();
 
   @Column(name = "updated", nullable = false)
   private LocalDateTime updated = LocalDateTime.now();
-
-
-
 
 }

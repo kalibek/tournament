@@ -1,8 +1,9 @@
 package com.kalibek.ttleague.security.service;
 
-import com.kalibek.ttleague.model.entity.UserEntity;
-import com.kalibek.ttleague.model.repo.UserRepo;
+import com.kalibek.ttleague.domain.entity.UserEntity;
+import com.kalibek.ttleague.domain.repo.UserRepo;
 import com.kalibek.ttleague.security.exception.PasswordDoesNotMatchException;
+import com.kalibek.ttleague.security.exception.RefreshTokenExpiredException;
 import com.kalibek.ttleague.security.exception.UserNotFoundException;
 import com.kalibek.ttleague.security.model.LoginRequest;
 import com.kalibek.ttleague.security.model.RefreshRequest;
@@ -37,15 +38,25 @@ public class UserService {
     UserEntity user = findByLogin(loginRequest.getLogin());
     if (bcryptPasswordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash())) {
       return new TokenResponse(
-          jwtTokenService.encode(user),
-          jwtTokenService.encode(user) //TODO generate refresh token
+          jwtTokenService.accessToken(user),
+          jwtTokenService.refreshToken(user)
       );
     }
     throw new PasswordDoesNotMatchException();
   }
 
   public TokenResponse authTokenRefreshPost(RefreshRequest refreshRequest) {
-    // TODO
-    return null;
+    String token = refreshRequest.getRefreshToken();
+    if (jwtTokenService.verify(token)) {
+      UserEntity user = new UserEntity();
+      user.setLogin(jwtTokenService.getLogin(token));
+      user.setRole(jwtTokenService.getRole(token));
+
+      return new TokenResponse(
+          jwtTokenService.accessToken(user),
+          jwtTokenService.refreshToken(user)
+      );
+    }
+    throw new RefreshTokenExpiredException();
   }
 }

@@ -1,6 +1,6 @@
 package com.kalibek.ttleague.service.mapper;
 
-import com.kalibek.ttleague.model.entity.Player;
+import com.kalibek.ttleague.domain.entity.Player;
 import com.kalibek.ttleague.rest.model.PlayerRequest;
 import com.kalibek.ttleague.rest.model.PlayerResponse;
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
-package com.kalibek.ttleague.model.repo;
+package com.kalibek.ttleague.domain.repo;
 
-import com.kalibek.ttleague.model.entity.Match;
+import com.kalibek.ttleague.domain.entity.Match;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

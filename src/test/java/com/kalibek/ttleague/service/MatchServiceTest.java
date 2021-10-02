@@ -5,11 +5,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.kalibek.ttleague.model.entity.GroupPlayer;
-import com.kalibek.ttleague.model.entity.Match;
-import com.kalibek.ttleague.model.repo.GroupPlayerRepo;
-import com.kalibek.ttleague.model.repo.GroupRepo;
-import com.kalibek.ttleague.model.repo.MatchRepo;
+import com.kalibek.ttleague.domain.entity.GroupPlayer;
+import com.kalibek.ttleague.domain.entity.Match;
+import com.kalibek.ttleague.domain.repo.GroupPlayerRepo;
+import com.kalibek.ttleague.domain.repo.GroupRepo;
+import com.kalibek.ttleague.domain.repo.MatchRepo;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;

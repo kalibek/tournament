@@ -1,5 +1,6 @@
 package com.kalibek.ttleague.security.config;
 
+import com.kalibek.ttleague.security.filter.JWTTokenFilter;
 import com.kalibek.ttleague.security.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

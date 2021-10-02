@@ -2,10 +2,10 @@ package com.kalibek.ttleague.service;
 
 import static com.kalibek.ttleague.service.util.PageableUtils.toPageable;
 
-import com.kalibek.ttleague.model.entity.Group;
-import com.kalibek.ttleague.model.entity.Tournament;
-import com.kalibek.ttleague.model.repo.GroupRepo;
-import com.kalibek.ttleague.model.repo.TournamentRepo;
+import com.kalibek.ttleague.domain.entity.Group;
+import com.kalibek.ttleague.domain.entity.Tournament;
+import com.kalibek.ttleague.domain.repo.GroupRepo;
+import com.kalibek.ttleague.domain.repo.TournamentRepo;
 import com.kalibek.ttleague.rest.model.GroupRequest;
 import com.kalibek.ttleague.rest.model.GroupResponse;
 import com.kalibek.ttleague.security.model.Roles;

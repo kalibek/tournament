@@ -3,7 +3,7 @@ Task List:
 
 | Task | status |
 |------|--------|
-| Implement refresh token mechanism| - |
+| Implement refresh token mechanism| Done |
 | Add rules to status transitions for Match | - |
 | Add rules to status transitions for Group | - |
 | Add rules to status transitions for Tournament | - |

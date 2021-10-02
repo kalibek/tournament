@@ -1,6 +1,6 @@
-package com.kalibek.ttleague.model.repo;
+package com.kalibek.ttleague.domain.repo;
 
-import com.kalibek.ttleague.model.entity.UserEntity;
+import com.kalibek.ttleague.domain.entity.UserEntity;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

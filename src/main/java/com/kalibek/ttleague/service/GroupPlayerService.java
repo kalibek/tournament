@@ -1,11 +1,11 @@
 package com.kalibek.ttleague.service;
 
-import com.kalibek.ttleague.model.entity.Group;
-import com.kalibek.ttleague.model.entity.GroupPlayer;
-import com.kalibek.ttleague.model.entity.Player;
-import com.kalibek.ttleague.model.repo.GroupPlayerRepo;
-import com.kalibek.ttleague.model.repo.GroupRepo;
-import com.kalibek.ttleague.model.repo.PlayerRepo;
+import com.kalibek.ttleague.domain.entity.Group;
+import com.kalibek.ttleague.domain.entity.GroupPlayer;
+import com.kalibek.ttleague.domain.entity.Player;
+import com.kalibek.ttleague.domain.repo.GroupPlayerRepo;
+import com.kalibek.ttleague.domain.repo.GroupRepo;
+import com.kalibek.ttleague.domain.repo.PlayerRepo;
 import com.kalibek.ttleague.rest.model.GroupPlayerResponse;
 import com.kalibek.ttleague.rest.model.Status;
 import com.kalibek.ttleague.security.model.Roles;

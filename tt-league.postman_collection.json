@@ -275,6 +275,31 @@
 			"response": []
 		},
 		{
+			"name": "List groups",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1.0.0/tournaments/1/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1.0.0",
+						"tournaments",
+						"1",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create Group",
 			"request": {
 				"auth": {
@@ -317,7 +342,7 @@
 			"response": []
 		},
 		{
-			"name": "List groups",
+			"name": "List groups Players",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -325,7 +350,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1.0.0/tournaments/1/groups",
+					"raw": "localhost:8080/api/v1.0.0/groups/1/players",
 					"host": [
 						"localhost"
 					],
@@ -333,9 +358,9 @@
 					"path": [
 						"api",
 						"v1.0.0",
-						"tournaments",
+						"groups",
 						"1",
-						"groups"
+						"players"
 					]
 				}
 			},
@@ -377,31 +402,6 @@
 						"v1.0.0",
 						"groups",
 						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List groups Players",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/api/v1.0.0/groups/1/players",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1.0.0",
-						"groups",
-						"1",
-						"players"
 					]
 				}
 			},
@@ -490,6 +490,31 @@
 						"players",
 						"2",
 						"seedings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List matches",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1.0.0/groups/1/matches",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1.0.0",
+						"groups",
+						"1",
+						"matches"
 					]
 				}
 			},

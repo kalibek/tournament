@@ -1,4 +1,4 @@
-package com.kalibek.ttleague.security.config;
+package com.kalibek.ttleague.security.filter;
 
 import static org.springframework.util.ObjectUtils.isEmpty;
 

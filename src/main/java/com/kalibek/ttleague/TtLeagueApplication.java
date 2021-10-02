@@ -1,7 +1,7 @@
 package com.kalibek.ttleague;
 
-import com.kalibek.ttleague.model.entity.UserEntity;
-import com.kalibek.ttleague.model.repo.UserRepo;
+import com.kalibek.ttleague.domain.entity.UserEntity;
+import com.kalibek.ttleague.domain.repo.UserRepo;
 import com.kalibek.ttleague.security.model.Roles;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

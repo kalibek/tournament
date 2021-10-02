@@ -1,4 +1,4 @@
-package com.kalibek.ttleague.model.entity;
+package com.kalibek.ttleague.domain.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

@@ -4,8 +4,8 @@ import static com.kalibek.ttleague.service.mapper.PlayerMapper.mergePlayer;
 import static com.kalibek.ttleague.service.mapper.PlayerMapper.toPlayerResponse;
 import static com.kalibek.ttleague.service.util.PageableUtils.toPageable;
 
-import com.kalibek.ttleague.model.entity.Player;
-import com.kalibek.ttleague.model.repo.PlayerRepo;
+import com.kalibek.ttleague.domain.entity.Player;
+import com.kalibek.ttleague.domain.repo.PlayerRepo;
 import com.kalibek.ttleague.rest.model.PlayerRequest;
 import com.kalibek.ttleague.rest.model.PlayerResponse;
 import com.kalibek.ttleague.security.model.Roles;
